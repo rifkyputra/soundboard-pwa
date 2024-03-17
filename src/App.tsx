@@ -6,7 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { withErrorHandler } from '@/error-handling';
 import AppErrorBoundaryFallback from '@/error-handling/fallbacks/App';
 import Pages from '@/routes/Pages';
-import Header from '@/sections/Header';
 import HotKeys from '@/sections/HotKeys';
 import Notifications from '@/sections/Notifications';
 import SW from '@/sections/SW';
@@ -20,7 +19,7 @@ function App() {
       <HotKeys />
       <SW />
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <Sidebar />
         <Pages />
       </BrowserRouter>

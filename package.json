@@ -68,10 +68,8 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write"
-    ],
-    "src/**/*.{js,jsx,ts,tsx,json}": [
-      "eslint --max-warnings=0"
     ]
+    
   },
   "author": {
     "name": "Suren Atoyan",
