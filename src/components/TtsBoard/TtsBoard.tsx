@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import { CancelPresentation } from '@mui/icons-material';
 
 const TtsBoard = () => {
-  const [tts, _] = useTtsBoard();
+  const [tts, action] = useTtsBoard();
 
   return (
     <Box
@@ -33,12 +33,17 @@ const TtsBoard = () => {
             <Typography justifyItems={'center'}>{tts.name}</Typography>
           </Box>
           {/* <Box alignSelf={'flex-end'}> */}
-          <IconButton className="symbol-delete" onClick={() => console.log('ss')}>
+          <IconButton className="symbol-delete" onClick={() => action.deleteFromTtsBoard(tts)}>
             <CancelPresentation></CancelPresentation>
           </IconButton>
           {/* </Box> */}
         </Box>
       ))}
+
+      <Box>
+        <IconButton onClick={() => action.clearAll()}>Clear All</IconButton>
+        <IconButton onClick={() => action.speakAll()}>Speak All</IconButton>
+      </Box>
     </Box>
   );
 };
