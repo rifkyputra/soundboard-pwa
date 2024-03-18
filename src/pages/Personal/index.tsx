@@ -1,11 +1,15 @@
 import Meta from '@/components/Meta';
-
+import NavigationBar from '@/components/NavigationBar/NavigationBar';
 import SymbolBoard from '@/components/SymbolBoard/SymbolBoard';
-import TtsBoard from '../../components/TtsBoard/TtsBoard';
-import { Box } from '@mui/material';
-import NavigationBar from '../../components/NavigationBar/NavigationBar';
+import TtsBoard from '@/components/TtsBoard/TtsBoard';
+import { Box } from '@mui/system';
+import React from 'react';
 
-function Welcome() {
+type Props = {
+  children: React.ReactNode;
+};
+
+const Personal = (props: Props) => {
   return (
     <>
       <Meta title="Welcome" />
@@ -18,6 +22,6 @@ function Welcome() {
       </Box>
     </>
   );
-}
+};
 
-export default Welcome;
+export default Personal;

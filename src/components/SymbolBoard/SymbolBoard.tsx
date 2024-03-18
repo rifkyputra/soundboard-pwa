@@ -64,7 +64,7 @@ const SymbolBoard = () => {
   ];
   return (
     <>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} ml={1} mr={5}>
         {symbols.map((symbol, index) => (
           <Grid item key={index}>
             <SymbolItem symbol={symbol} />
