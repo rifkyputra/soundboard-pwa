@@ -35,7 +35,7 @@ const NavigationBar = (props: Props) => {
         </Button>
 
         <Button variant={'text'}>
-          <RouterLink to={'/personal'}>Situations </RouterLink>
+          <RouterLink to={'/situations'}>Situations </RouterLink>
         </Button>
       </Box>
       <Box
@@ -50,7 +50,7 @@ const NavigationBar = (props: Props) => {
         </Button>
 
         <Button variant={'text'}>
-          <RouterLink to={'/personal'}> Settings </RouterLink>
+          <RouterLink to={'/settings'}> Settings </RouterLink>
         </Button>
       </Box>
     </Box>

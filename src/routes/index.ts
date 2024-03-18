@@ -53,6 +53,11 @@ const routes: Routes = {
     component: asyncComponentLoader(() => import('@/pages/NotFound')),
     path: '*',
   },
+  [Pages.Settings]: {
+    component: asyncComponentLoader(() => import('@/pages/Settings')),
+    path: '/settings',
+    title: 'Settings',
+  },
 };
 
 export default routes;
