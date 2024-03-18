@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import { speak } from '@/utils/textToSpeech';
 import Typography from '@mui/material/Typography';
 import useTtsBoard from '@/store/ttsBoard';
+import { Card } from '@mui/material';
 
 type Props = {
   symbol?: SymbolData;
@@ -23,24 +24,24 @@ const SymbolItem = (props: Props) => {
         });
       }}
     >
-      <Box
-        height={200}
-        width={200}
-        my={4}
-        display="flex"
-        alignItems="center"
-        gap={4}
-        p={2}
-        sx={{ border: '2px solid grey' }}
-        justifyContent={'center'}
-      >
-        <Box display={'flex'}>
-          <div className="symbol-text">
-            <Typography align="center">{props?.symbol?.name}</Typography>
-          </div>
-          {/* {props?.symbol?.description} */}
+      <Card variant="outlined">
+        <Box
+          height={200}
+          width={200}
+          display="flex"
+          alignItems="center"
+          gap={4}
+          p={2}
+          justifyContent={'center'}
+        >
+          <Box display={'flex'}>
+            <div className="symbol-text">
+              <Typography align="center">{props?.symbol?.name}</Typography>
+            </div>
+            {/* {props?.symbol?.description} */}
+          </Box>
         </Box>
-      </Box>
+      </Card>
     </div>
   );
 };

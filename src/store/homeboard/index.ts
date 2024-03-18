@@ -1,9 +1,10 @@
-import { Grid } from '@mui/material';
-import React from 'react';
-import SymbolItem from '../SymbolItem/SymbolItem';
+import { atom, useRecoilState } from 'recoil';
 
-const SymbolBoard = () => {
-  const symbols = [
+import type { HomeboardAction } from './types';
+
+const homeboardState = atom<SymbolData[]>({
+  key: 'homeboard-state',
+  default: [
     {
       name: 'Saya',
     },
@@ -61,18 +62,12 @@ const SymbolBoard = () => {
     {
       name: 'Sakit',
     },
-  ];
-  return (
-    <>
-      <Grid container spacing={2} ml={1} mr={5}>
-        {symbols.map((symbol, index) => (
-          <Grid item key={index}>
-            <SymbolItem symbol={symbol} />
-          </Grid>
-        ))}
-      </Grid>
-    </>
-  );
-};
+  ],
+});
 
-export default SymbolBoard;
+function useHomeboard(): [SymbolData[], HomeboardAction] {
+  const [homeboard, setHomeboard] = useRecoilState(homeboardState);
+  return [homeboard, setHomeboard];
+}
+
+export default useHomeboard;

@@ -7,8 +7,6 @@ const ttsBoardState = atom<SymbolData[]>({
   key: 'tts-board-state',
   default: [],
   effects: [updateValue],
-
-  // effects: [addToTtsBoard]
 });
 
 function updateValue({ setSelf, onSet }: AtomEffectParams) {
@@ -17,13 +15,6 @@ function updateValue({ setSelf, onSet }: AtomEffectParams) {
   storedTtsBoard && setSelf(JSON.parse(storedTtsBoard));
   onSet((value: SymbolData[]) => localStorage.setItem('tts-board', JSON.stringify(value)));
 }
-
-type ttsActions = {
-  addToTtsBoard: (value: SymbolData) => void;
-  deleteFromTtsBoard: (value: SymbolData) => void;
-  clearAll: () => void;
-  speakAll: () => void;
-};
 
 function useTtsBoard(): [SymbolData[], ttsActions] {
   const [ttsBoard, setTtsBoard] = useRecoilState(ttsBoardState);
@@ -48,15 +39,11 @@ function useTtsBoard(): [SymbolData[], ttsActions] {
   }, [setTtsBoard]);
 
   const speakAll = useCallback(() => {
-    ttsBoard.forEach((tts) => {
-      speak({
-        text: tts.name ?? '',
-        speechRate: 1,
-      });
+    speak({
+      text: ttsBoard.map((v) => v.name).join(' ') ?? '',
+      speechRate: 0.9,
     });
   }, [ttsBoard]);
-
-  // const ttsBoard = useRecoilValue(ttsBoardState);
 
   const memoizedActions = useMemo(
     () => ({ addToTtsBoard, deleteFromTtsBoard, clearAll, speakAll }),

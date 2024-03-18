@@ -1,7 +1,7 @@
 import useTtsBoard from '@/store/ttsBoard';
 import { Box, IconButton } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import { CancelPresentation, DeleteForever, VolumeUp } from '@mui/icons-material';
+import { CancelPresentation, DeleteForever, Save, SaveAlt, VolumeUp } from '@mui/icons-material';
 
 const TtsBoard = () => {
   const [tts, action] = useTtsBoard();
@@ -59,11 +59,16 @@ const TtsBoard = () => {
         width={'15%'}
         mr={10}
       >
-        <IconButton onClick={() => action.clearAll()}>
-          <DeleteForever></DeleteForever>
-        </IconButton>
         <IconButton onClick={() => action.speakAll()}>
           <VolumeUp></VolumeUp>
+        </IconButton>
+
+        <IconButton onClick={() => action.clearAll()}>
+          <Save></Save>
+        </IconButton>
+
+        <IconButton onClick={() => action.clearAll()}>
+          <DeleteForever></DeleteForever>
         </IconButton>
       </Box>
     </Box>

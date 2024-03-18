@@ -1,9 +1,10 @@
 import Meta from '@/components/Meta';
 import NavigationBar from '@/components/NavigationBar/NavigationBar';
-import SymbolBoard from '@/components/SymbolBoard/SymbolBoard';
+import HomeBoard from '@/components/Homeboard/Homeboard';
 import TtsBoard from '@/components/TtsBoard/TtsBoard';
 import { Box } from '@mui/system';
 import React from 'react';
+import PersonalBoard from '@/components/Personalboard/Personalboard';
 
 type Props = {
   children: React.ReactNode;
@@ -18,7 +19,7 @@ const Personal = (props: Props) => {
 
       <Box flexDirection={'column'}>
         <TtsBoard></TtsBoard>
-        <SymbolBoard></SymbolBoard>
+        <PersonalBoard></PersonalBoard>
       </Box>
     </>
   );

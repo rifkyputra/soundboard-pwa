@@ -1,6 +1,6 @@
 import Meta from '@/components/Meta';
 
-import SymbolBoard from '@/components/SymbolBoard/SymbolBoard';
+import HomeBoard from '@/components/Homeboard/Homeboard';
 import TtsBoard from '../../components/TtsBoard/TtsBoard';
 import { Box } from '@mui/material';
 import NavigationBar from '../../components/NavigationBar/NavigationBar';
@@ -14,7 +14,7 @@ function Welcome() {
 
       <Box flexDirection={'column'}>
         <TtsBoard></TtsBoard>
-        <SymbolBoard></SymbolBoard>
+        <HomeBoard></HomeBoard>
       </Box>
     </>
   );
