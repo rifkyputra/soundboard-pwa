@@ -12,6 +12,7 @@ function Pages() {
         {Object.values(routes).map(({ path, component: Component }) => {
           return <Route key={path} path={path} element={<Component />} />;
         })}
+        <Route path="/manifest.json" />
       </Routes>
     </Box>
   );
