@@ -17,8 +17,13 @@ import React from 'react';
 
 import { Typography } from '@mui/material';
 import { Feedback, InfoRounded } from '@mui/icons-material';
+import useTheme from '@/store/theme';
+import useModalManager from '@/store/modalManager';
 
 const SettingsPage = () => {
+  const [_, { toggle }] = useTheme();
+  const [modal, { openFeedbackModal }] = useModalManager();
+
   return (
     <>
       <NavigationBar children={undefined}></NavigationBar>
@@ -58,12 +63,12 @@ const SettingsPage = () => {
               <InfoRounded />
               <Typography>Dark Mode</Typography>
 
-              <Switch></Switch>
+              <Switch onChange={() => toggle()}></Switch>
             </Box>
           </Card>
 
           <Card>
-            <ButtonBase>
+            <ButtonBase onClick={() => openFeedbackModal()}>
               <Box display={'flex'} px={4} py={2}>
                 <Feedback />
                 <Typography>Feedback</Typography>

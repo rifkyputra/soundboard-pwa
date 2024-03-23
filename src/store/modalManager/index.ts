@@ -29,6 +29,14 @@ function useModalManager(): [ModalOpenState, ModalManagerAction] {
     });
   };
 
+  const openFeedbackModal = () => {
+    closeAllModals();
+    setModal({
+      isOpen: true,
+      modalKey: 'feedback',
+    });
+  };
+
   const openAddSymbolModal = () => {
     closeAllModals();
     setModal({
@@ -52,8 +60,16 @@ function useModalManager(): [ModalOpenState, ModalManagerAction] {
       closeAllModals,
       openSituationModal,
       openAddSymbolModal,
+      openFeedbackModal,
     }),
-    [openModal, closeModal, closeAllModals, openSituationModal, openAddSymbolModal],
+    [
+      openModal,
+      closeModal,
+      closeAllModals,
+      openSituationModal,
+      openAddSymbolModal,
+      openFeedbackModal,
+    ],
   );
 
   return [modal, useMemoizedActions];

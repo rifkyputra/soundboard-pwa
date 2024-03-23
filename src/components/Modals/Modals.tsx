@@ -1,6 +1,7 @@
 import useModalManager from '@/store/modalManager';
 import SaveSituationModal from './SaveSituationModal';
 import AddSymbolModal from './AddSymbolModal';
+import FeedbackModal from './FeedbackModal';
 
 function ModalRoot() {
   const [modal, { closeModal }] = useModalManager();
@@ -21,6 +22,10 @@ function ModalRoot() {
 
       {modal.isOpen && modal.modalKey === 'addSymbol' && (
         <AddSymbolModal open={modal.isOpen} handleClose={closeModal} style={{}}></AddSymbolModal>
+      )}
+
+      {modal.isOpen && modal.modalKey === 'feedback' && (
+        <FeedbackModal open={modal.isOpen} handleClose={closeModal} style={{}}></FeedbackModal>
       )}
     </>
   );

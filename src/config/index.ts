@@ -2,7 +2,7 @@ import isMobile from '@/utils/is-mobile';
 
 import type { Notifications } from './types';
 
-const title = 'React PWA';
+const title = 'AAC PWA';
 
 const email = 'rifkyadniputra@gmail.com';
 
