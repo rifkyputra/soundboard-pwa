@@ -4,6 +4,8 @@ import Box from '@mui/material/Box';
 
 import routes from '..';
 import { getPageHeight } from './utils';
+import useModalManager from '@/store/modalManager';
+import ModalRoot from '../../components/Modals/Modals';
 
 function Pages() {
   return (
@@ -14,6 +16,8 @@ function Pages() {
         })}
         <Route path="/manifest.json" />
       </Routes>
+
+      <ModalRoot />
     </Box>
   );
 }

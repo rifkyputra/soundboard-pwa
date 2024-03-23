@@ -2,9 +2,13 @@ import useTtsBoard from '@/store/ttsBoard';
 import { Box, Grid, IconButton } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { CancelPresentation, DeleteForever, Save, SaveAlt, VolumeUp } from '@mui/icons-material';
+import useSituations from '@/store/situations';
+import useModalManager from '@/store/modalManager';
 
 const TtsBoard = () => {
   const [tts, action] = useTtsBoard();
+  const [_, { saveSituation }] = useSituations();
+  const [__, { openSituationModal }] = useModalManager();
 
   return (
     <Box
@@ -33,7 +37,7 @@ const TtsBoard = () => {
             {tts.map((tts, index) => (
               <Box
                 key={index}
-                sx={{ border: '2px solid grey' }}
+                sx={{ border: '2px solid grey ' }}
                 height={120}
                 width={120}
                 justifyContent={'space-between'}
@@ -72,7 +76,7 @@ const TtsBoard = () => {
               <VolumeUp></VolumeUp>
             </IconButton>
 
-            <IconButton onClick={() => action.clearAll()}>
+            <IconButton onClick={() => openSituationModal()}>
               <Save></Save>
             </IconButton>
 

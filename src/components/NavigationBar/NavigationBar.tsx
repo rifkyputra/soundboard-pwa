@@ -67,9 +67,9 @@ const NavigationBar = (props: Props) => {
               <Push />
 
               <Box display={'flex'} flexDirection={'row'} gap={2}>
-                <Button variant={'text'} onClick={() => action.toggleEdit()}>
+                {/* <Button variant={'text'} onClick={() => action.toggleEdit()}>
                   {isEdit ? <a>Done Edit</a> : <a>Edit Board</a>}
-                </Button>
+                </Button> */}
 
                 <Button variant={'text'}>
                   <RouterLink to={'/settings'}> Settings </RouterLink>

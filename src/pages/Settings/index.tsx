@@ -2,6 +2,8 @@ import NavigationBar from '@/components/NavigationBar/NavigationBar';
 import { FlexBox } from '@/components/styled';
 import Sidebar from '@/sections/Sidebar';
 import {
+  Box,
+  ButtonBase,
   Card,
   List,
   ListItem,
@@ -9,12 +11,12 @@ import {
   ListItemIcon,
   ListItemText,
   SwipeableDrawer,
+  Switch,
 } from '@mui/material';
 import React from 'react';
 
-import routes from '@/routes';
-import DefaultIcon from '@mui/icons-material/Deblur';
-import { Link } from 'react-router-dom';
+import { Typography } from '@mui/material';
+import { Feedback, InfoRounded } from '@mui/icons-material';
 
 const SettingsPage = () => {
   return (
@@ -22,7 +24,7 @@ const SettingsPage = () => {
       <NavigationBar children={undefined}></NavigationBar>
 
       <FlexBox>
-        <Card>
+        {/* <Card>
           <List sx={{ width: 250, pt: (theme) => `${theme.mixins.toolbar.minHeight}px` }}>
             {Object.values([
               {
@@ -46,10 +48,28 @@ const SettingsPage = () => {
                 </ListItem>
               ))}
           </List>
-        </Card>
-        <FlexBox flexDirection={'column'} px={3}>
+        </Card> */}
+        <FlexBox flexDirection={'column'} px={3} gap={3}>
           <h1>Settings</h1>
           <p>Settings page content</p>
+
+          <Card>
+            <Box display={'flex'} px={4} py={2}>
+              <InfoRounded />
+              <Typography>Dark Mode</Typography>
+
+              <Switch></Switch>
+            </Box>
+          </Card>
+
+          <Card>
+            <ButtonBase>
+              <Box display={'flex'} px={4} py={2}>
+                <Feedback />
+                <Typography>Feedback</Typography>
+              </Box>
+            </ButtonBase>
+          </Card>
         </FlexBox>
       </FlexBox>
     </>

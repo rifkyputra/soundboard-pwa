@@ -6,6 +6,7 @@ interface speakParams {
 }
 
 export const speak = (props: speakParams) => {
+  synth.cancel();
   const utterance = new SpeechSynthesisUtterance();
   utterance.text = props.text;
   utterance.lang = 'id-ID';

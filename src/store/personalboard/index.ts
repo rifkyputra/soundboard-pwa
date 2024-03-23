@@ -1,7 +1,7 @@
 import { atom, useRecoilState } from 'recoil';
 
 import type { personalboardAction } from './types';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 const personalboardState = atom<SymbolData[]>({
   key: 'personalboard-state',
@@ -11,12 +11,16 @@ const personalboardState = atom<SymbolData[]>({
 function usePersonalboard(): [SymbolData[], personalboardAction] {
   const [personalboard, setpersonalboard] = useRecoilState(personalboardState);
 
-  const addToBoard = (value: SymbolData) =>
-    useCallback(() => {
+  const addToBoard = useCallback(
+    (value: SymbolData) => {
       setpersonalboard((personalboard: SymbolData[]) => [...personalboard, value]);
-    }, [setpersonalboard]);
+    },
+    [setpersonalboard],
+  );
 
-  return [personalboard, { addToBoard }];
+  const useMemoizedActions = useMemo(() => ({ addToBoard }), [addToBoard]);
+
+  return [personalboard, useMemoizedActions];
 }
 
 export default usePersonalboard;

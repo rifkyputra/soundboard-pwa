@@ -4,7 +4,7 @@ import type { Notifications } from './types';
 
 const title = 'React PWA';
 
-const email = 'auther-email@gmail.com';
+const email = 'rifkyadniputra@gmail.com';
 
 const repository = 'https://github.com/suren-atoyan/react-pwa';
 
