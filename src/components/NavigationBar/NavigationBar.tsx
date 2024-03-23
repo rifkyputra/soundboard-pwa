@@ -18,6 +18,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import useToggleMobileMenu from '@/store/toggleMobileMenu';
 import DefaultIcon from '@mui/icons-material/Deblur';
 import ListItemButton from '@mui/material/ListItemButton';
+import GridColumnPadding, { GridRowPadding } from '@/layouts/BodyPadding';
+import { FlexBox } from '../styled';
+import Push from '../Push/push';
 
 type Props = {
   children: React.ReactNode;
@@ -44,41 +47,38 @@ const NavigationBar = (props: Props) => {
           </IconButton>
         </>
       ) : (
-        <Box
-          display={'flex'}
-          flexDirection={'row'}
-          justifyContent={'flex-start'}
-          alignItems={'center'}
-          gap={2}
-        >
-          <Button variant={'text'}>
-            <RouterLink to={'/'}>Home</RouterLink>
-          </Button>
+        <>
+          <GridRowPadding mdSize={10}>
+            <Box display={'flex'}>
+              <FlexBox flexDirection={'row'} justifyContent={'flex-start'} gap={2}>
+                <Button variant={'text'}>
+                  <RouterLink to={'/'}>Home</RouterLink>
+                </Button>
 
-          <Button variant={'text'}>
-            <RouterLink to={'/personal'}>Personal</RouterLink>
-          </Button>
+                <Button variant={'text'}>
+                  <RouterLink to={'/personal'}>Personal</RouterLink>
+                </Button>
 
-          <Button variant={'text'}>
-            <RouterLink to={'/situations'}>Situations </RouterLink>
-          </Button>
-        </Box>
+                <Button variant={'text'}>
+                  <RouterLink to={'/situations'}>Situations </RouterLink>
+                </Button>
+              </FlexBox>
+
+              <Push />
+
+              <Box display={'flex'} flexDirection={'row'} gap={2}>
+                <Button variant={'text'} onClick={() => action.toggleEdit()}>
+                  {isEdit ? <a>Done Edit</a> : <a>Edit Board</a>}
+                </Button>
+
+                <Button variant={'text'}>
+                  <RouterLink to={'/settings'}> Settings </RouterLink>
+                </Button>
+              </Box>
+            </Box>
+          </GridRowPadding>
+        </>
       )}
-      <Box
-        display={'flex'}
-        flexDirection={'row'}
-        justifyContent={'flex-start'}
-        alignItems={'center'}
-        gap={2}
-      >
-        <Button variant={'text'} onClick={() => action.toggleEdit()}>
-          {isEdit ? <a>Done Edit</a> : <a>Edit Board</a>}
-        </Button>
-
-        <Button variant={'text'}>
-          <RouterLink to={'/settings'}> Settings </RouterLink>
-        </Button>
-      </Box>
 
       <SwipeableDrawer
         anchor="left"
@@ -91,6 +91,11 @@ const NavigationBar = (props: Props) => {
       >
         <List sx={{ width: 250, pt: (theme) => `${theme.mixins.toolbar.minHeight}px` }}>
           {Object.values([
+            {
+              title: 'Home',
+              path: '/',
+              icon: DefaultIcon,
+            },
             {
               title: 'Personal',
               path: '/personal',

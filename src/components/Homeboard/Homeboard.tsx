@@ -12,13 +12,15 @@ const HomeBoard = () => {
 
   return (
     <>
-      <Grid container spacing={2} ml={1} mr={5}>
-        {symbols.map((symbol, index) => (
-          <Grid item key={index}>
-            <SymbolItem symbol={symbol} />
-          </Grid>
-        ))}
-      </Grid>
+      <Box justifyContent={'center'} alignContent={'center'} alignItems={'center'}>
+        <Grid container spacing={2} ml={1} mr={5}>
+          {symbols.map((symbol, index) => (
+            <Grid item key={index}>
+              <SymbolItem symbol={symbol} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </>
   );
 };

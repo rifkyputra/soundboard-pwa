@@ -21,6 +21,7 @@ function App() {
       <BrowserRouter>
         {/* <Header /> */}
         <Sidebar />
+
         <Pages />
       </BrowserRouter>
     </Fragment>

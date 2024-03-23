@@ -19,7 +19,7 @@ const TtsBoard = () => {
       justifyContent={'space-between'}
     >
       <Grid container spacing={2}>
-        <Grid item xs={8}>
+        <Grid item md={10}>
           <Box
             display={'flex'}
             flexDirection={'row'}
@@ -44,7 +44,6 @@ const TtsBoard = () => {
                 <Box p={2} width={120}>
                   <Typography justifyItems={'center'}>{tts.name}</Typography>
                 </Box>
-                {/* <Box alignSelf={'flex-end'}> */}
                 <IconButton
                   className="symbol-delete"
                   onClick={() => action.deleteFromTtsBoard(tts)}
@@ -57,12 +56,15 @@ const TtsBoard = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={2}>
+        <Grid item md={2}>
           <Box
             display={'flex'}
+            width={'100%'}
+            height={'100%'}
             flexDirection={'row'}
-            justifyContent={'end'}
+            justifyContent={'center'}
             alignItems={'center'}
+            alignContent={'center'}
             flex={1}
             mr={10}
           >
