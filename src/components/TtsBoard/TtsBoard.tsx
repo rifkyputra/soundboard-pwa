@@ -1,5 +1,5 @@
 import useTtsBoard from '@/store/ttsBoard';
-import { Box, Grid, IconButton } from '@mui/material';
+import { Box, Card, Grid, IconButton } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { CancelPresentation, DeleteForever, Save, SaveAlt, VolumeUp } from '@mui/icons-material';
 import useSituations from '@/store/situations';
@@ -11,86 +11,92 @@ const TtsBoard = () => {
   const [__, { openSituationModal }] = useModalManager();
 
   return (
-    <Box
-      height={200}
-      width={'100%'}
-      display={'flex'}
-      alignItems={'left'}
-      flexDirection={'row'}
-      overflow={'auto'}
-      gap={1}
-      py={2}
-      justifyContent={'space-between'}
-    >
-      <Grid container spacing={2}>
-        <Grid item md={10}>
-          <Box
-            display={'flex'}
-            flexDirection={'row'}
-            overflow={'auto'}
-            flex={9}
-            gap={1}
-            py={2}
-            flexShrink={0}
-            ml={3}
-          >
-            {tts.map((tts, index) => (
+    <Box marginTop={5} marginBottom={5}>
+      <Card variant="outlined">
+        <Box
+          width={'100%'}
+          minHeight={200}
+          display={'flex'}
+          alignItems={'left'}
+          flexDirection={'row'}
+          overflow={'auto'}
+          gap={1}
+          // py={2}
+          justifyContent={'space-between'}
+          bgcolor={'background.paper'}
+        >
+          <Grid container spacing={2}>
+            <Grid item md={9} xs={12}>
               <Box
-                key={index}
-                sx={{ border: '2px solid grey ' }}
-                height={145}
-                width={120}
-                justifyContent={'space-between'}
                 display={'flex'}
-                alignItems={'center'}
-                flexDirection={'column'}
+                flexDirection={'row'}
+                overflow={'auto'}
+                flex={9}
+                gap={1}
+                py={2}
+                flexShrink={0}
+                ml={3}
+                minWidth={200}
               >
-                <div className="symbol-text">
-                  <Typography fontSize={30} align="center">
-                    {tts.emoji}
-                  </Typography>
-                </div>
-                <Box p={2} width={120} fontSize={12}>
-                  <Typography justifyItems={'center'}>{tts.name}</Typography>
-                </Box>
-                <IconButton
-                  className="symbol-delete"
-                  onClick={() => action.deleteFromTtsBoard(tts)}
-                >
-                  <CancelPresentation></CancelPresentation>
-                </IconButton>
-                {/* </Box> */}
+                {tts.map((tts, index) => (
+                  <Box
+                    key={index}
+                    sx={{ border: '2px solid #b8b8b8 ' }}
+                    height={145}
+                    width={120}
+                    justifyContent={'space-between'}
+                    display={'flex'}
+                    alignItems={'center'}
+                    flexDirection={'column'}
+                  >
+                    <div className="symbol-text">
+                      <Typography fontSize={30} align="center">
+                        {tts.emoji}
+                      </Typography>
+                    </div>
+                    <Box p={2} width={120} fontSize={12}>
+                      <Typography justifyItems={'center'}>{tts.name}</Typography>
+                    </Box>
+                    <IconButton
+                      className="symbol-delete"
+                      onClick={() => action.deleteFromTtsBoard(tts, index)}
+                    >
+                      <CancelPresentation></CancelPresentation>
+                    </IconButton>
+                    {/* </Box> */}
+                  </Box>
+                ))}
               </Box>
-            ))}
-          </Box>
-        </Grid>
+            </Grid>
 
-        <Grid item md={2}>
-          <Box
-            display={'flex'}
-            width={'100%'}
-            height={'100%'}
-            flexDirection={'row'}
-            justifyContent={'center'}
-            alignItems={'center'}
-            alignContent={'center'}
-            flex={1}
-            mr={10}
-          >
-            <IconButton onClick={() => action.speakAll()}>
-              <VolumeUp></VolumeUp>
-            </IconButton>
+            <Grid item md={3} xs={12} bgcolor={'background.board'}>
+              <Box
+                display={'flex'}
+                width={'100%'}
+                height={'100%'}
+                flexDirection={'row'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                alignContent={'center'}
+                flex={1}
+                mr={10}
+              >
+                <IconButton onClick={() => action.speakAll()}>
+                  <VolumeUp></VolumeUp>
+                </IconButton>
 
-            <IconButton onClick={() => openSituationModal()}>
-              <Save></Save>
-            </IconButton>
+                <IconButton onClick={() => openSituationModal()}>
+                  <Save></Save>
+                </IconButton>
 
-            <IconButton onClick={() => action.clearAll()}>
-              <DeleteForever></DeleteForever>
-            </IconButton>
-          </Box>
-        </Grid>
-      </Grid>
+                <IconButton onClick={() => action.clearAll()}>
+                  <DeleteForever></DeleteForever>
+                </IconButton>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+      </Card>
     </Box>
   );
 };

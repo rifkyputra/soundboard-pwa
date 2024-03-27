@@ -27,9 +27,11 @@ function useTtsBoard(): [SymbolData[], ttsActions] {
   );
 
   const deleteFromTtsBoard = useCallback(
-    (value: SymbolData) => {
-      console.log('deleteFromTtsBoard', value);
-      setTtsBoard((ttsBoard: SymbolData[]) => ttsBoard.filter((tts) => tts.name !== value.name));
+    (value: SymbolData, index: number) => {
+      setTtsBoard((ttsBoard: SymbolData[]) => [
+        ...ttsBoard.slice(0, index),
+        ...ttsBoard.slice(index + 1),
+      ]);
     },
     [setTtsBoard],
   );

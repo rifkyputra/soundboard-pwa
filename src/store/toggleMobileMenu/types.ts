@@ -1,5 +1,5 @@
 type toggleMobileMenuActions = {
-  toggleMobileMenu: () => void;
+  toggleMobileMenu: (open?: boolean) => void;
 };
 
 export type { toggleMobileMenuActions };

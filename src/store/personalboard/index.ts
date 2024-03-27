@@ -23,10 +23,16 @@ function usePersonalboard(): [SymbolData[], personalboardAction] {
 
   const addToBoard = useCallback(
     (value: SymbolData) => {
-      setpersonalboard((personalboard: SymbolData[]) => [...personalboard, value]);
-      openSnackbar({
-        message: 'Berhasil ditambahkan ke board',
-      });
+      if (personalboard.find((personalboard) => personalboard.name === value.name)) {
+        openSnackbar({
+          message: 'Sudah ada di board',
+        });
+      } else {
+        setpersonalboard((personalboard: SymbolData[]) => [...personalboard, value]);
+        openSnackbar({
+          message: 'Berhasil ditambahkan ke board',
+        });
+      }
     },
 
     [setpersonalboard],

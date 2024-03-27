@@ -15,27 +15,11 @@ const PersonalBoard = () => {
 
   return (
     <>
-      <Box display={'flex'} flexDirection={'row'} ml={3}>
-        <Button
-          variant="text"
-          onClick={() => {
-            toggleEdit();
-          }}
-        >
-          Edit
-        </Button>
-      </Box>
-      <Grid container spacing={2} ml={1} mr={5}>
-        <Grid item>
-          <div
-            onClick={() => {
-              // ttsAction.addToTtsBoard(props?.symbol!);
-              // speak({
-              //   text: props?.symbol?.name ?? '',
-              //   speechRate: 1,
-              // });
-            }}
-          >
+      <Box height={12}></Box>
+
+      <Box justifyContent={'center'} alignContent={'center'} alignItems={'center'}>
+        <Grid container spacing={2} ml={1} mr={5} justifyContent={'center'}>
+          <Grid item>
             <ButtonBase onClick={() => openAddSymbolModal()}>
               <Card variant="outlined">
                 <Box
@@ -55,19 +39,71 @@ const PersonalBoard = () => {
                 </Box>
               </Card>
             </ButtonBase>
-          </div>
-        </Grid>
-        {symbols.map((symbol, index) => (
-          <Grid item key={index}>
-            <SymbolItem
-              symbol={symbol}
-              onDelete={() => {
-                deleteFromBoard(symbol);
-              }}
-            />
           </Grid>
-        ))}
-      </Grid>
+          {symbols.map((symbol, index) => (
+            <Grid item key={index}>
+              <SymbolItem
+                symbol={symbol}
+                onDelete={() => {
+                  deleteFromBoard(symbol);
+                }}
+              />
+            </Grid>
+          ))}
+          <Grid item>
+            <ButtonBase onClick={() => openAddSymbolModal()}>
+              <Box
+                height={200}
+                width={200}
+                display="flex"
+                alignItems="center"
+                gap={4}
+                p={2}
+                justifyContent={'center'}
+              ></Box>
+            </ButtonBase>
+          </Grid>
+          <Grid item>
+            <ButtonBase onClick={() => openAddSymbolModal()}>
+              <Box
+                height={200}
+                width={200}
+                display="flex"
+                alignItems="center"
+                gap={4}
+                p={2}
+                justifyContent={'center'}
+              ></Box>
+            </ButtonBase>
+          </Grid>
+          <Grid item>
+            <ButtonBase onClick={() => openAddSymbolModal()}>
+              <Box
+                height={200}
+                width={200}
+                display="flex"
+                alignItems="center"
+                gap={4}
+                p={2}
+                justifyContent={'center'}
+              ></Box>
+            </ButtonBase>
+          </Grid>
+          <Grid item>
+            <ButtonBase onClick={() => openAddSymbolModal()}>
+              <Box
+                height={200}
+                width={200}
+                display="flex"
+                alignItems="center"
+                gap={4}
+                p={2}
+                justifyContent={'center'}
+              ></Box>
+            </ButtonBase>
+          </Grid>
+        </Grid>
+      </Box>
     </>
   );
 };

@@ -1,6 +1,6 @@
 import useOrientation from '@/hooks/useOrientation';
 import useToggleEdit from '@/store/toggleEdit';
-import { Router } from '@mui/icons-material';
+import { Router, Settings } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -67,9 +67,9 @@ const NavigationBar = (props: Props) => {
               <Push />
 
               <Box display={'flex'} flexDirection={'row'} gap={2}>
-                {/* <Button variant={'text'} onClick={() => action.toggleEdit()}>
+                <Button variant={'text'} onClick={() => action.toggleEdit()}>
                   {isEdit ? <a>Done Edit</a> : <a>Edit Board</a>}
-                </Button> */}
+                </Button>
 
                 <Button variant={'text'}>
                   <RouterLink to={'/settings'}> Settings </RouterLink>
@@ -83,8 +83,8 @@ const NavigationBar = (props: Props) => {
       <SwipeableDrawer
         anchor="left"
         open={isMobileMenuOpen}
-        onClose={toggleMobileMenu}
-        onOpen={toggleMobileMenu}
+        onClose={() => toggleMobileMenu(false)}
+        onOpen={() => toggleMobileMenu()}
         disableBackdropTransition={false}
         swipeAreaWidth={30}
         data-pw="sidebar"
@@ -106,13 +106,18 @@ const NavigationBar = (props: Props) => {
               path: '/situations',
               icon: DefaultIcon,
             },
+            {
+              title: 'Settings',
+              path: '/settings',
+              icon: Settings,
+            },
           ])
             .filter((route) => route.title)
             .map(({ path, title, icon: Icon }) => (
               <ListItem sx={{ p: 0 }} key={path}>
                 <ListItemButton>
                   <ListItemIcon>{Icon ? <Icon /> : <DefaultIcon />}</ListItemIcon>
-                  <Link>
+                  <Link onClick={() => toggleMobileMenu(false)}>
                     <RouterLink to={path}>{title} </RouterLink>{' '}
                   </Link>
                 </ListItemButton>
@@ -120,6 +125,13 @@ const NavigationBar = (props: Props) => {
             ))}
         </List>
       </SwipeableDrawer>
+      {isPotrait ? (
+        <Button variant={'text'} onClick={() => action.toggleEdit()}>
+          {isEdit ? <a>Done Edit</a> : <a>Edit Board</a>}
+        </Button>
+      ) : (
+        <></>
+      )}
     </Box>
   );
 };

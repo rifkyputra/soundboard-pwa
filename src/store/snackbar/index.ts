@@ -18,6 +18,10 @@ function useSnackbarManager(): [snackbarArgs, SnackbarAction] {
         open: true,
         ...value,
       });
+
+      setTimeout(() => {
+        setSnackbar({ open: false });
+      }, 2000);
     },
     [setSnackbar],
   );

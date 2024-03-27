@@ -10,9 +10,12 @@ const toggleMobileMenuState = atom({
 function useToggleMobileMenu(): [boolean, toggleMobileMenuActions] {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useRecoilState(toggleMobileMenuState);
 
-  const toggleMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen((isMobileMenuOpen: boolean) => !isMobileMenuOpen);
-  }, [setIsMobileMenuOpen]);
+  const toggleMobileMenu = useCallback(
+    (open?: boolean) => {
+      setIsMobileMenuOpen((isMobileMenuOpen: boolean) => open ?? !isMobileMenuOpen);
+    },
+    [setIsMobileMenuOpen],
+  );
 
   return [isMobileMenuOpen, { toggleMobileMenu }];
 }

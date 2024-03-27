@@ -14,18 +14,15 @@ const HomeBoard = () => {
 
   return (
     <>
-      <Box display={'flex'} flexDirection={'row'} ml={3}>
-        <Button
-          variant="text"
-          onClick={() => {
-            toggleEdit();
-          }}
-        >
-          Edit
-        </Button>
-      </Box>
-      <Box justifyContent={'center'} alignContent={'center'} alignItems={'center'}>
-        <Grid container spacing={2} ml={1} mr={5}>
+      <Box height={12}></Box>
+
+      <Box
+        justifyContent={'center'}
+        alignContent={'center'}
+        alignItems={'center'}
+        // mx={10}
+      >
+        <Grid container spacing={2} justifyContent={'center'}>
           {symbols.map((symbol, index) => (
             <Grid item key={index}>
               <SymbolItem symbol={symbol} onAddToPersonal={() => addToBoard(symbol)} />

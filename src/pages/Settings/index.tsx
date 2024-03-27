@@ -19,9 +19,10 @@ import { Typography } from '@mui/material';
 import { Feedback, InfoRounded } from '@mui/icons-material';
 import useTheme from '@/store/theme';
 import useModalManager from '@/store/modalManager';
+import { Themes } from '@/theme/types';
 
 const SettingsPage = () => {
-  const [_, { toggle }] = useTheme();
+  const [theme, { toggle }] = useTheme();
   const [modal, { openFeedbackModal }] = useModalManager();
 
   return (
@@ -61,9 +62,14 @@ const SettingsPage = () => {
           <Card variant="outlined">
             <Box display={'flex'} px={4} py={2}>
               <InfoRounded />
-              <Typography>Dark Mode</Typography>
 
-              <Switch onChange={() => toggle()}></Switch>
+              <Typography>Dark Mode</Typography>
+              {theme}
+
+              <Switch
+                checked={theme.includes('dark') ? true : false}
+                onChange={() => toggle()}
+              ></Switch>
             </Box>
           </Card>
 
