@@ -58,7 +58,7 @@ const SettingsPage = () => {
           <h1>Settings</h1>
           <p>Settings page content</p>
 
-          <Card>
+          <Card variant="outlined">
             <Box display={'flex'} px={4} py={2}>
               <InfoRounded />
               <Typography>Dark Mode</Typography>
@@ -67,7 +67,7 @@ const SettingsPage = () => {
             </Box>
           </Card>
 
-          <Card>
+          <Card variant="outlined">
             <ButtonBase onClick={() => openFeedbackModal()}>
               <Box display={'flex'} px={4} py={2}>
                 <Feedback />

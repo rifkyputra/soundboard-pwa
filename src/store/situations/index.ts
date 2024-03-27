@@ -1,26 +1,19 @@
 import { speak } from '@/utils/textToSpeech';
 import { useCallback, useMemo } from 'react';
 import { atom, useRecoilState } from 'recoil';
+import { AtomEffectParams } from '../types';
 
 const situationsState = atom<SituationData[]>({
   key: 'situations',
-  default: [
-    {
-      name: 'Situation 1',
-      description: 'This is the first situation',
-      symbols: [
-        {
-          name: 'Symbol 1',
-          description: 'This is the first symbol',
-        },
-        {
-          name: 'Symbol 2',
-          description: 'This is the second symbol',
-        },
-      ],
-    },
-  ],
+  default: [],
+  effects: [synchronizeWithLocalStorage],
 });
+
+function synchronizeWithLocalStorage({ setSelf, onSet }: AtomEffectParams) {
+  const storedSituations = localStorage.getItem('situations');
+  storedSituations && setSelf(JSON.parse(storedSituations));
+  onSet((value: SituationData[]) => localStorage.setItem('situations', JSON.stringify(value)));
+}
 
 function useSituations(): [SituationData[], SituationActions] {
   const [situations, setSituations] = useRecoilState(situationsState);

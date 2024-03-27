@@ -34,13 +34,15 @@ function AddSymbolModal({ open, handleClose, style, children }: Props) {
       <Box>
         <Box sx={{ ...style, width: 400 }} bgcolor={'background.paper'} margin={'auto'} p={3}>
           <Typography id="server-modal-title" variant="h6" component="h2">
-            Server-side modal
+            Berikan Feedback
           </Typography>
           <Typography id="server-modal-description" sx={{ pt: 2 }}>
-            If you disable JavaScript, you will still see me.
+            Saran Anda akan membantu kami untuk lebih baik lagi
           </Typography>
           <Box
             component="form"
+            display={'flex'}
+            flexDirection={'column'}
             sx={{
               '& .MuiTextField-root': { m: 1, width: '25ch' },
             }}

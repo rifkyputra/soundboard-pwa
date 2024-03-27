@@ -1,6 +1,7 @@
 import usePersonalboard from '@/store/personalboard';
 import { Box, Button, Modal, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
+import { v4 } from 'uuid';
 
 type Props = {
   open: boolean;
@@ -13,6 +14,7 @@ function AddSymbolModal({ open, handleClose, style, children }: Props) {
   const [symbolData, setSymbolData] = useState({
     name: '',
     description: '',
+    emoji: '',
   });
 
   const [_, { addToBoard }] = usePersonalboard();
@@ -34,15 +36,17 @@ function AddSymbolModal({ open, handleClose, style, children }: Props) {
       <Box>
         <Box sx={{ ...style, width: 400 }} bgcolor={'background.paper'} margin={'auto'} p={3}>
           <Typography id="server-modal-title" variant="h6" component="h2">
-            Server-side modal
+            Tambahkan Simbol Baru
           </Typography>
           <Typography id="server-modal-description" sx={{ pt: 2 }}>
-            If you disable JavaScript, you will still see me.
+            Isi data simbol dengan benar
           </Typography>
           <Box
             component="form"
             sx={{
               '& .MuiTextField-root': { m: 1, width: '25ch' },
+              display: 'flex',
+              flexDirection: 'column',
             }}
             noValidate
             autoComplete="off"
@@ -73,12 +77,27 @@ function AddSymbolModal({ open, handleClose, style, children }: Props) {
                 })
               }
             />
+            <TextField
+              id="Emojis"
+              label="Emoji"
+              variant="outlined"
+              onChange={(v) =>
+                setSymbolData((state) => {
+                  return {
+                    ...state,
+                    emoji: v.target.value,
+                  };
+                })
+              }
+            />
             <Button
               variant="contained"
               onClick={() => {
                 addToBoard({
+                  id: v4(),
                   name: symbolData.name,
                   description: symbolData.description,
+                  emoji: symbolData.emoji,
                 });
                 handleClose();
               }}

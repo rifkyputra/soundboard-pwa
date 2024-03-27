@@ -10,9 +10,12 @@ const toggleEditState = atom({
 function useToggleEdit(): [boolean, toggleEditActions] {
   const [isEdit, setIsEdit] = useRecoilState(toggleEditState);
 
-  const toggleEdit = useCallback(() => {
-    setIsEdit((isEdit: boolean) => !isEdit);
-  }, [setIsEdit]);
+  const toggleEdit = useCallback(
+    (open?: boolean) => {
+      setIsEdit((isEdit: boolean) => open ?? !isEdit);
+    },
+    [setIsEdit],
+  );
 
   return [isEdit, { toggleEdit }];
 }

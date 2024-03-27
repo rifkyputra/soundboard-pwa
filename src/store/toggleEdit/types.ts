@@ -1,4 +1,4 @@
 type toggleEditActions = {
-  toggleEdit: () => void;
+  toggleEdit: (open?: boolean) => void;
 };
 export type { toggleEditActions };

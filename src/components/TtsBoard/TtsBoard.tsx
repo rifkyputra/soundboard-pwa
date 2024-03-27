@@ -38,14 +38,19 @@ const TtsBoard = () => {
               <Box
                 key={index}
                 sx={{ border: '2px solid grey ' }}
-                height={120}
+                height={145}
                 width={120}
                 justifyContent={'space-between'}
                 display={'flex'}
                 alignItems={'center'}
                 flexDirection={'column'}
               >
-                <Box p={2} width={120}>
+                <div className="symbol-text">
+                  <Typography fontSize={30} align="center">
+                    {tts.emoji}
+                  </Typography>
+                </div>
+                <Box p={2} width={120} fontSize={12}>
                   <Typography justifyItems={'center'}>{tts.name}</Typography>
                 </Box>
                 <IconButton
