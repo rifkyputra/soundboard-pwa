@@ -64,7 +64,6 @@ const SettingsPage = () => {
               <InfoRounded />
 
               <Typography>Dark Mode</Typography>
-              {theme}
 
               <Switch
                 checked={theme.includes('dark') ? true : false}

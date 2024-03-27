@@ -42,7 +42,7 @@ const TtsBoard = () => {
                   <Box
                     key={index}
                     sx={{ border: '2px solid #b8b8b8 ' }}
-                    height={145}
+                    height={155}
                     width={120}
                     justifyContent={'space-between'}
                     display={'flex'}
@@ -54,7 +54,7 @@ const TtsBoard = () => {
                         {tts.emoji}
                       </Typography>
                     </div>
-                    <Box p={2} width={120} fontSize={12}>
+                    <Box p={2} width={120} height={40} fontSize={12} textOverflow={'ellipsis'}>
                       <Typography justifyItems={'center'}>{tts.name}</Typography>
                     </Box>
                     <IconButton
@@ -63,7 +63,6 @@ const TtsBoard = () => {
                     >
                       <CancelPresentation></CancelPresentation>
                     </IconButton>
-                    {/* </Box> */}
                   </Box>
                 ))}
               </Box>

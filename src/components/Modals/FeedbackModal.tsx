@@ -1,5 +1,5 @@
 import usePersonalboard from '@/store/personalboard';
-import { Box, Button, Modal, TextField, Typography } from '@mui/material';
+import { Box, Button, Modal, TextField, Typography, TextareaAutosize } from '@mui/material';
 import { useState } from 'react';
 
 type Props = {
@@ -43,16 +43,21 @@ function AddSymbolModal({ open, handleClose, style, children }: Props) {
             component="form"
             display={'flex'}
             flexDirection={'column'}
+            justifyContent={'flex-start'}
+            alignItems={'flex-start'}
+            alignContent={'flex-start'}
             sx={{
-              '& .MuiTextField-root': { m: 1, width: '25ch' },
+              '& .MuiTextField-root': { width: '25ch' },
             }}
             noValidate
             autoComplete="off"
+            gap={2}
           >
             <TextField
               id="Name"
               label="Feedback"
               variant="outlined"
+              // padd
               onChange={(v) =>
                 setSymbolData((state) => {
                   return {
@@ -62,10 +67,12 @@ function AddSymbolModal({ open, handleClose, style, children }: Props) {
                 })
               }
             />
-            <TextField
+            <TextareaAutosize
               id="Description"
-              label="Deskripsi Simbol"
-              variant="outlined"
+              // label="Deskripsi Feedback"
+              // variant="outlined"
+              placeholder="Deskripsi Feedback"
+              minRows={4}
               onChange={(v) =>
                 setSymbolData((state) => {
                   return {
@@ -78,10 +85,10 @@ function AddSymbolModal({ open, handleClose, style, children }: Props) {
             <Button
               variant="contained"
               onClick={() => {
-                addToBoard({
-                  name: symbolData.name,
-                  description: symbolData.description,
-                });
+                // addToBoard({
+                //   name: symbolData.name,
+                //   description: symbolData.description,
+                // });
                 handleClose();
               }}
             >

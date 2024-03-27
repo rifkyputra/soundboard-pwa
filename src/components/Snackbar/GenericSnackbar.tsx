@@ -7,7 +7,7 @@ const GenericSnackbar = ({ message, action, handleClose, open }: snackbarArgs) =
   return (
     <Snackbar
       open={open}
-      autoHideDuration={6000}
+      autoHideDuration={1200}
       onClose={handleClose}
       message={message}
       action={action}

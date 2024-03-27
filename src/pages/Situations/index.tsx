@@ -25,7 +25,13 @@ const Situations = (props: Props) => {
                     <IconButton onClick={() => speakSituation(situation)}>
                       <VolumeUp></VolumeUp>
                     </IconButton>
-                    <Box display={'flex'} flexDirection={'column'}>
+                    <Box
+                      display={'flex'}
+                      flexDirection={'column'}
+                      justifyContent={'start'}
+                      alignContent={'flex-start'}
+                      alignItems={'flex-start'}
+                    >
                       <h2> {situation.name} </h2>
                       <p>{situation.symbols.map((v) => v.name).join(' ')}</p>
                     </Box>

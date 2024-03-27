@@ -23,7 +23,7 @@ function usePersonalboard(): [SymbolData[], personalboardAction] {
 
   const addToBoard = useCallback(
     (value: SymbolData) => {
-      if (personalboard.find((personalboard) => personalboard.name === value.name)) {
+      if (personalboard.some((item) => item.name.includes(value.name))) {
         openSnackbar({
           message: 'Sudah ada di board',
         });
@@ -35,7 +35,7 @@ function usePersonalboard(): [SymbolData[], personalboardAction] {
       }
     },
 
-    [setpersonalboard],
+    [setpersonalboard, personalboard],
   );
 
   const deleteFromBoard = useCallback(
@@ -49,8 +49,8 @@ function usePersonalboard(): [SymbolData[], personalboardAction] {
   );
 
   const useMemoizedActions = useMemo(
-    () => ({ addToBoard, deleteFromBoard }),
-    [addToBoard, deleteFromBoard],
+    () => ({ addToBoard, deleteFromBoard, personalboard }),
+    [addToBoard, deleteFromBoard, personalboard],
   );
 
   return [personalboard, useMemoizedActions];

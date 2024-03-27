@@ -19,9 +19,13 @@ function useSnackbarManager(): [snackbarArgs, SnackbarAction] {
         ...value,
       });
 
-      setTimeout(() => {
-        setSnackbar({ open: false });
-      }, 2000);
+      setTimeout(
+        () => {
+          setSnackbar({ open: false });
+        },
+        4000,
+        value.message,
+      );
     },
     [setSnackbar],
   );
