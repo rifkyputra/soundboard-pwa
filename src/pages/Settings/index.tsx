@@ -16,7 +16,7 @@ import {
 import React from 'react';
 
 import { Typography } from '@mui/material';
-import { Feedback, InfoRounded } from '@mui/icons-material';
+import { DarkMode, Feedback, InfoRounded } from '@mui/icons-material';
 import useTheme from '@/store/theme';
 import useModalManager from '@/store/modalManager';
 import { Themes } from '@/theme/types';
@@ -57,14 +57,26 @@ const SettingsPage = () => {
         </Card> */}
         <FlexBox flexDirection={'column'} px={3} gap={3}>
           <h1>Settings</h1>
-          <p>Settings page content</p>
 
           <Card variant="outlined">
-            <Box display={'flex'} px={4} py={2}>
-              <InfoRounded />
-
+            <Box display={'flex'} alignItems={'center'} px={4} py={2}>
+              <Box
+                borderRadius={'50%'}
+                padding={1}
+                bgcolor={'primary.main'}
+                margin={'auto'}
+                display={'flex'}
+                justifyItems={'center'}
+                width={'2rem'}
+                height={'2rem'}
+                justifyContent={'center'}
+                alignItems={'center'}
+              >
+                <DarkMode sx={{ color: 'background.paper', fontSize: 18 }} />
+              </Box>
+              <Box width={'1.1rem'}></Box>
               <Typography>Dark Mode</Typography>
-
+              <Box width={'1.1rem'}></Box>
               <Switch
                 checked={theme.includes('dark') ? true : false}
                 onChange={() => toggle()}
@@ -74,8 +86,22 @@ const SettingsPage = () => {
 
           <Card variant="outlined">
             <ButtonBase onClick={() => openFeedbackModal()}>
-              <Box display={'flex'} px={4} py={2}>
-                <Feedback />
+              <Box display={'flex'} alignItems={'center'} px={4} py={2}>
+                <Box
+                  borderRadius={'50%'}
+                  padding={1}
+                  bgcolor={'primary.main'}
+                  margin={'auto'}
+                  display={'flex'}
+                  justifyItems={'center'}
+                  width={'2rem'}
+                  height={'2rem'}
+                  justifyContent={'center'}
+                  alignItems={'center'}
+                >
+                  <Feedback sx={{ color: 'background.paper', fontSize: 18 }} />
+                </Box>
+                <Box width={'1.1rem'}></Box>
                 <Typography>Feedback</Typography>
               </Box>
             </ButtonBase>

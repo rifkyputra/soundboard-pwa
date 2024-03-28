@@ -32,6 +32,7 @@ function SaveSituationModal({ open, handleClose, style, children }: Props) {
         alignItems: 'center',
         height: '100vh',
         width: '100vw',
+        backgroundColor: 'rgba(0,0,0,0.6)',
       }}
     >
       <Box>
@@ -49,6 +50,8 @@ function SaveSituationModal({ open, handleClose, style, children }: Props) {
             }}
             noValidate
             autoComplete="off"
+            display={'flex'}
+            flexDirection={'column'}
           >
             <TextField
               id="Name"

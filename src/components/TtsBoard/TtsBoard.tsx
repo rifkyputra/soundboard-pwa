@@ -93,7 +93,7 @@ const TtsBoard = () => {
                     justifyContent={'center'}
                     alignItems={'center'}
                   >
-                    <VolumeUp sx={{ color: '#fff', fontSize: 25 }}></VolumeUp>
+                    <VolumeUp sx={{ color: 'background.paper', fontSize: 25 }}></VolumeUp>
                   </Box>
                 </IconButton>
 
@@ -110,7 +110,7 @@ const TtsBoard = () => {
                     justifyContent={'center'}
                     alignItems={'center'}
                   >
-                    <Save sx={{ color: '#fff', fontSize: 25 }}></Save>
+                    <Save sx={{ color: 'background.paper', fontSize: 25 }}></Save>
                   </Box>
                 </IconButton>
 
@@ -127,7 +127,7 @@ const TtsBoard = () => {
                     justifyContent={'center'}
                     alignItems={'center'}
                   >
-                    <DeleteForever sx={{ color: '#fff', fontSize: 25 }}></DeleteForever>
+                    <DeleteForever sx={{ color: 'background.paper', fontSize: 25 }}></DeleteForever>
                   </Box>
                 </IconButton>
               </Box>

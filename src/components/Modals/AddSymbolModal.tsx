@@ -31,6 +31,7 @@ function AddSymbolModal({ open, handleClose, style, children }: Props) {
         alignItems: 'center',
         height: '100vh',
         width: '100vw',
+        backgroundColor: 'rgba(0,0,0,0.6)',
       }}
     >
       <Box>
