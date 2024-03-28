@@ -81,15 +81,54 @@ const TtsBoard = () => {
                 mr={10}
               >
                 <IconButton onClick={() => action.speakAll()}>
-                  <VolumeUp></VolumeUp>
+                  <Box
+                    borderRadius={'50%'}
+                    padding={1}
+                    bgcolor={'primary.main'}
+                    margin={'auto'}
+                    display={'flex'}
+                    justifyItems={'center'}
+                    width={'3rem'}
+                    height={'3rem'}
+                    justifyContent={'center'}
+                    alignItems={'center'}
+                  >
+                    <VolumeUp sx={{ color: '#fff', fontSize: 25 }}></VolumeUp>
+                  </Box>
                 </IconButton>
 
                 <IconButton onClick={() => openSituationModal()}>
-                  <Save></Save>
+                  <Box
+                    borderRadius={'50%'}
+                    padding={1}
+                    bgcolor={'primary.main'}
+                    margin={'auto'}
+                    display={'flex'}
+                    justifyItems={'center'}
+                    width={'3rem'}
+                    height={'3rem'}
+                    justifyContent={'center'}
+                    alignItems={'center'}
+                  >
+                    <Save sx={{ color: '#fff', fontSize: 25 }}></Save>
+                  </Box>
                 </IconButton>
 
                 <IconButton onClick={() => action.clearAll()}>
-                  <DeleteForever></DeleteForever>
+                  <Box
+                    borderRadius={'50%'}
+                    padding={1}
+                    bgcolor={'primary.main'}
+                    margin={'auto'}
+                    display={'flex'}
+                    justifyItems={'center'}
+                    width={'3rem'}
+                    height={'3rem'}
+                    justifyContent={'center'}
+                    alignItems={'center'}
+                  >
+                    <DeleteForever sx={{ color: '#fff', fontSize: 25 }}></DeleteForever>
+                  </Box>
                 </IconButton>
               </Box>
             </Grid>

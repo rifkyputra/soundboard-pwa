@@ -13,7 +13,7 @@ import {
   ListItemText,
 } from '@mui/material';
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useRoutes } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import useToggleMobileMenu from '@/store/toggleMobileMenu';
 import DefaultIcon from '@mui/icons-material/Deblur';
@@ -21,6 +21,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import GridColumnPadding, { GridRowPadding } from '@/layouts/BodyPadding';
 import { FlexBox } from '../styled';
 import Push from '../Push/push';
+import Situations from '../../pages/Situations/index';
+import Typography from '@mui/material/Typography';
+import routes from '@/routes';
 
 type Props = {
   children: React.ReactNode;
@@ -45,35 +48,52 @@ const NavigationBar = (props: Props) => {
           <IconButton onClick={() => toggleMobileMenu()}>
             <MenuIcon> </MenuIcon>
           </IconButton>
+          <Link component={RouterLink} to={'/'}>
+            <Button variant={'text'}>
+              <Typography fontSize={'1.5rem'} fontWeight={'bold'}>
+                Soundboard AAC
+              </Typography>
+            </Button>
+          </Link>
         </>
       ) : (
         <>
           <GridRowPadding mdSize={10}>
             <Box display={'flex'}>
-              <FlexBox flexDirection={'row'} justifyContent={'flex-start'} gap={2}>
-                <Button variant={'text'}>
-                  <RouterLink to={'/'}>Home</RouterLink>
-                </Button>
+              <FlexBox
+                flexDirection={'row'}
+                justifyContent={'flex-start'}
+                alignItems={'center'}
+                gap={2}
+              >
+                <Link component={RouterLink} to={'/'}>
+                  <Button variant={'text'}>
+                    <Typography fontSize={'1.5rem'} fontWeight={'bold'}>
+                      Soundboard AAC
+                    </Typography>
+                  </Button>
+                </Link>
 
-                <Button variant={'text'}>
-                  <RouterLink to={'/personal'}>Personal</RouterLink>
-                </Button>
+                <Link component={RouterLink} to={'/personal'}>
+                  <Button variant={'text'}>Personal</Button>
+                </Link>
 
-                <Button variant={'text'}>
-                  <RouterLink to={'/situations'}>Situations </RouterLink>
-                </Button>
+                <Link component={RouterLink} to={'/situations'}>
+                  <Button variant={'text'}>Situations</Button>
+                </Link>
               </FlexBox>
 
               <Push />
 
-              <Box display={'flex'} flexDirection={'row'} gap={2}>
+              <Box display={'flex'} flexDirection={'row'} alignItems={'center'} gap={2}>
                 <Button variant={'text'} onClick={() => action.toggleEdit()}>
                   {isEdit ? <a>Done Edit</a> : <a>Edit Board</a>}
                 </Button>
 
-                <Button variant={'text'}>
-                  <RouterLink to={'/settings'}> Settings </RouterLink>
-                </Button>
+                <Link component={RouterLink} to={'/settings'}>
+                  {' '}
+                  <Button variant={'text'}>Settings </Button>
+                </Link>
               </Box>
             </Box>
           </GridRowPadding>
@@ -118,7 +138,9 @@ const NavigationBar = (props: Props) => {
                 <ListItemButton>
                   <ListItemIcon>{Icon ? <Icon /> : <DefaultIcon />}</ListItemIcon>
                   <Link onClick={() => toggleMobileMenu(false)}>
-                    <RouterLink to={path}>{title} </RouterLink>{' '}
+                    <Link component={RouterLink} to={path}>
+                      {title}{' '}
+                    </Link>{' '}
                   </Link>
                 </ListItemButton>
               </ListItem>

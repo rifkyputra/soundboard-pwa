@@ -6,7 +6,7 @@ import { Themes } from './types';
 const sharedTheme = {
   palette: {
     background: {
-      default: '#f6f6f6',
+      default: '#f9f9f9',
       paper: '#fff',
       board: '#f6f6f6',
     },
@@ -41,7 +41,7 @@ const themes: Record<Themes, ThemeOptions> = {
     palette: {
       mode: 'light',
       background: {
-        default: '#f6f6f6',
+        default: '#f9f9f9',
         paper: '#fff',
         board: '#f6f6f6',
       },
@@ -55,12 +55,12 @@ const themes: Record<Themes, ThemeOptions> = {
     palette: {
       mode: 'dark',
       background: {
-        default: '#111',
+        default: '#2e2e2e',
         paper: '#171717',
         board: '#212121',
       },
       primary: {
-        main: '#333',
+        main: '#fff',
       },
     },
   }),
