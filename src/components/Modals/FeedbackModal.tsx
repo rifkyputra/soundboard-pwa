@@ -73,7 +73,7 @@ function AddSymbolModal({ open, handleClose, style, children }: Props) {
               // label="Deskripsi Feedback"
               // variant="outlined"
               placeholder="Deskripsi Feedback"
-              minRows={4}
+              // minRows={4}
               onChange={(v) =>
                 setSymbolData((state) => {
                   return {
