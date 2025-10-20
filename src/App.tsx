@@ -1,5 +1,5 @@
-import { Fragment, useEffect, useLayoutEffect } from 'react';
-import { BrowserRouter, useLocation } from 'react-router-dom';
+import { Fragment } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import CssBaseline from '@mui/material/CssBaseline';
 

@@ -7,10 +7,6 @@ enum Pages {
   Welcome,
   Personal,
   Situations,
-  Page1,
-  Page2,
-  Page3,
-  Page4,
   NotFound,
   Settings,
 }
