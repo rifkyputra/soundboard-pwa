@@ -5,20 +5,13 @@ import { Box } from '@mui/system';
 import React from 'react';
 import PersonalBoard from '@/components/Personalboard/Personalboard';
 import GridColumnPadding from '@/layouts/BodyPadding';
-import { Button } from '@mui/material';
-import useToggleEdit from '@/store/toggleEdit';
 
-type Props = {
-  children: React.ReactNode;
-};
-
-const Personal = (props: Props) => {
-  const [isEdit, { toggleEdit }] = useToggleEdit();
+const Personal = () => {
   return (
     <>
       <Meta title="Personal Board" />
 
-      <NavigationBar children={undefined}></NavigationBar>
+      <NavigationBar></NavigationBar>
       <GridColumnPadding>
         <Box flexDirection={'column'}>
           <TtsBoard></TtsBoard>

@@ -5,13 +5,11 @@ import GridColumnPadding from '@/layouts/BodyPadding';
 import { VolumeUp, Delete } from '@mui/icons-material';
 import Push from '@/components/Push/push';
 
-type Props = {};
-
-const Situations = (props: Props) => {
+const Situations = () => {
   const [situations, { speakSituation, deleteSituation }] = useSituations();
   return (
     <>
-      <NavigationBar children={undefined}></NavigationBar>
+      <NavigationBar></NavigationBar>
       <GridColumnPadding>
         <Box>
           <h1> Situations </h1>
@@ -20,7 +18,7 @@ const Situations = (props: Props) => {
           <Box display={'flex'} flexDirection={'column'} gap={2}>
             {situations.length > 0 ? (
               situations.map((situation) => (
-                <Card>
+                <Card key={situation.name + `${Math.random()}`}>
                   <Box display={'flex'} flexDirection={'row'} alignItems={'center'} px={3}>
                     <IconButton onClick={() => speakSituation(situation)}>
                       <VolumeUp></VolumeUp>

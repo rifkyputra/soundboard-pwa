@@ -2,7 +2,6 @@ import Meta from '@/components/Meta';
 
 import HomeBoard from '@/components/Homeboard/Homeboard';
 import TtsBoard from '../../components/TtsBoard/TtsBoard';
-import { Box, Grid } from '@mui/material';
 import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import GridColumnPadding from '@/layouts/BodyPadding';
 
@@ -11,7 +10,7 @@ function Welcome() {
     <>
       <Meta title="Welcome" />
 
-      <NavigationBar children={undefined}></NavigationBar>
+      <NavigationBar></NavigationBar>
 
       <GridColumnPadding>
         <TtsBoard></TtsBoard>

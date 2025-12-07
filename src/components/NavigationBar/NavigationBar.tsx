@@ -1,6 +1,6 @@
 import useOrientation from '@/hooks/useOrientation';
 import useToggleEdit from '@/store/toggleEdit';
-import { Router, Settings } from '@mui/icons-material';
+import { Settings } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -10,26 +10,19 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText,
 } from '@mui/material';
 import React from 'react';
-import { Link as RouterLink, useRoutes } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import useToggleMobileMenu from '@/store/toggleMobileMenu';
 import DefaultIcon from '@mui/icons-material/Deblur';
 import ListItemButton from '@mui/material/ListItemButton';
-import GridColumnPadding, { GridRowPadding } from '@/layouts/BodyPadding';
+import { GridRowPadding } from '@/layouts/BodyPadding';
 import { FlexBox } from '../styled';
 import Push from '../Push/push';
-import Situations from '../../pages/Situations/index';
 import Typography from '@mui/material/Typography';
-import routes from '@/routes';
 
-type Props = {
-  children: React.ReactNode;
-};
-
-const NavigationBar = (props: Props) => {
+const NavigationBar = () => {
   const [isEdit, action] = useToggleEdit();
   const [isMobileMenuOpen, { toggleMobileMenu }] = useToggleMobileMenu();
 
