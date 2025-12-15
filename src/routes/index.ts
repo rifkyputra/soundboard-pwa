@@ -21,6 +21,16 @@ const routes: Routes = {
     path: '/situations',
     title: 'Situations',
   },
+  [Pages.Login]: {
+    component: asyncComponentLoader(() => import('@/pages/Login')),
+    path: '/login',
+    title: 'Login',
+  },
+  [Pages.Register]: {
+    component: asyncComponentLoader(() => import('@/pages/Register')),
+    path: '/register',
+    title: 'Register',
+  },
   [Pages.NotFound]: {
     component: asyncComponentLoader(() => import('@/pages/NotFound')),
     path: '*',
