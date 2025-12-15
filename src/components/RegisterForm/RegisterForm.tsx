@@ -32,7 +32,7 @@ function RegisterForm({ onSuccess, onLoginClick }: RegisterFormProps) {
       console.log('Registration successful!', data);
       onSuccess?.();
     },
-    onError: (error: any) => {
+    onError: (error) => {
       console.error('Registration failed:', error);
     },
   });
@@ -73,8 +73,7 @@ function RegisterForm({ onSuccess, onLoginClick }: RegisterFormProps) {
 
         {registerMutation.isError && (
           <Alert severity="error">
-            {registerMutation.error?.response?.data?.message ||
-              'Registration failed. Please try again.'}
+            {registerMutation.error?.message || 'Registration failed. Please try again.'}
           </Alert>
         )}
 

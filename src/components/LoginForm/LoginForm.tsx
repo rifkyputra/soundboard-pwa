@@ -72,7 +72,7 @@ function LoginForm({ onSuccess, onRegisterClick }: LoginFormProps) {
 
         {loginMutation.isError && (
           <Alert severity="error">
-            {loginMutation.error?.response?.data?.message || 'Invalid username or password'}
+            {loginMutation.error?.message || 'Invalid username or password'}
           </Alert>
         )}
 
