@@ -9,6 +9,7 @@ enum Pages {
   Settings,
   Login,
   Register,
+  Logout,
 }
 
 type PathRouteCustomProps = {

@@ -31,6 +31,10 @@ const routes: Routes = {
     path: '/register',
     title: 'Register',
   },
+  [Pages.Logout]: {
+    component: asyncComponentLoader(() => import('@/pages/Logout')),
+    path: '/logout',
+  },
   [Pages.NotFound]: {
     component: asyncComponentLoader(() => import('@/pages/NotFound')),
     path: '*',
